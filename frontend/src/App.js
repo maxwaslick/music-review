@@ -16,10 +16,15 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          Hello I am Mike
         </a>
       </header>
+      <body>
+        <h1> Testing css file </h1>
+        <h2> Testing css file again</h2>
+      </body>
     </div>
+
   );
 }
 

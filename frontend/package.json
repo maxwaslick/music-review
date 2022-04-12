@@ -33,6 +33,7 @@
     ]
   },
   "devDependencies": {
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "react-scripts": "4.0.3"
   }
 }
