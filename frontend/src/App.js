@@ -1,6 +1,7 @@
 import './App.css';
 import React from 'react';
-import Modal from "./components/Modal";
+import songModal from "./components/songModal";
+import ratingModal from "./components/ratingModal";
 import axios from 'axios';
 
 class App extends React.Component {

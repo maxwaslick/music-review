@@ -1,4 +1,5 @@
 import React from "react";
+import "./modal.css";
 
 import {
   Button,
@@ -12,7 +13,7 @@ import {
   Label,
 } from "reactstrap";
 
-export default class CustomModal extends React.Component {
+class ratingModal extends React.Component {
     
     constructor(props) {
         super(props);
@@ -34,27 +35,19 @@ export default class CustomModal extends React.Component {
         const { toggle, onSave } = this.props;
         return (
             <Modal isOpen={true} toggle={toggle}>
-                <ModalHeader toggle={toggle}> Songs </ModalHeader>
+                <ModalHeader toggle={toggle}> Ratings </ModalHeader>
                 <ModalBody>
                     <Form>
+                        <p> Song: {this.state.activeItem.song} </p>
+                        <p> Artist: {this.state.activeItem.artist} </p>
                         <FormGroup>
-                            <Label for="song">Song Name</Label>
-                            <Input 
-                                type = "text"
-                                name = "song"
-                                value={this.state.activeItem.song}
-                                onChange={this.handleChange}
-                                placeholder="Enter Song Name"
-                            />
-                        </FormGroup>
-                        <FormGroup>
-                            <Label for="artist">Artist</Label>
+                            <Label for="rating">Rating </Label>
                             <Input
-                                type="text"
-                                name="artist"
-                                value={this.state.activeItem.artist}
+                                type = "number"
+                                name = "rating"
+                                value={this.state.activeItem.rating}
                                 onChange={this.handleChange}
-                                placeholder="Enter Artist Name"
+                                placeholder="Enter New Rating"
                             />
                         </FormGroup>
                     </Form>
@@ -65,7 +58,9 @@ export default class CustomModal extends React.Component {
                     </Button>
                 </ModalFooter>
             </Modal>
-        );
+        )
     }
 
 }
+
+export default ratingModal
