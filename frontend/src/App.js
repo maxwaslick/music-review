@@ -1,7 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
 import React from 'react';
-import Modal from "./components/Modal";
+import songModal from "./components/songModal";
+import ratingModal from "./components/ratingModal";
 import axios from 'axios';
 
 function App() {
