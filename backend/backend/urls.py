@@ -19,7 +19,8 @@ from rest_framework import routers
 from reviewsite import views
 
 router = routers.DefaultRouter()
-router.register(r'reviews', views.RatingView, 'ratings')
+router.register(r'reviews', views.RatingView, 'rating')
+router.register(r'songs', views.SongView, 'song')
 
 urlpatterns = [
     path('admin/', admin.site.urls),

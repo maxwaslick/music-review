@@ -1,33 +1,37 @@
-import logo from './logo.svg';
 import './App.css';
 import React from 'react';
 import Modal from "./components/Modal";
 import axios from 'axios';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Hello I am Mike
-        </a>
-      </header>
-      <body>
-        <h1> Testing css file </h1>
-        <h2> Testing css file again</h2>
-      </body>
-    </div>
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      activeItem: {
+        title: "",
+        description: "",
+        rated: false,
+      },
+    songlist: []
+    };
+  }
 
-  );
+
+componentDidMount() {
+  this.refreshList();
 }
 
+refreshList = () => {
+  axios
+    .get("http://localhost:8000/api/songs")
+    .then((res) => this.setState({ songlist: res.data }))
+    .catch((err) => console.log(err));
+
+}
+
+render() {
+  return ( 
+    )
+}
+}
 export default App;
