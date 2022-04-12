@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework import viewsets
-from .serializers import RatingSerializer 
-from .models import Rating 
+from .serializers import RatingSerializer, ArtistSerializer, SongSerializer, UserSerializer
+from .models import Rating, Artist, Song, User 
 
 
 class RatingView(viewsets.ModelViewSet):
