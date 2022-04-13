@@ -84,6 +84,11 @@
   padding: 5px;
 }
 
+li {
+  list-style: none;
+  color: #282c34;
+}
+
 h3 {
   font-family: 'Open Sans', sans-serif;
   color: #282c34;

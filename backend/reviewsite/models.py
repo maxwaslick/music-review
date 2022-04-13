@@ -23,9 +23,5 @@ class Rating(models.Model):
 
 class Artist(models.Model):
     Artist_name = models.CharField(max_length=100, primary_key = True)
-    Artist_genre = models.CharField(max_length=100)
-    Artist_label = models.CharField(max_length=100)
-    Artist_grammys = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(999)])
     def __str__(self):
-        return " Artist_name: " + str(self.Artist_name) +  " Genre: " + str(self.Artist_genre) + " Label: " + str(self.Artist_label) + "Number of Grammys: " + str(self.Artist_grammys)
-
+        return " Artist_name: " + str(self.Artist_name) 
