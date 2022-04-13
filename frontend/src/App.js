@@ -11,7 +11,7 @@ class App extends React.Component {
   constructor(props) {
     super(props); 
     this.state = {
-      viewSongs: false,
+      viewSongs: true,
       activeItem: {
         Song: "",
         Artist: "",
@@ -40,14 +40,6 @@ class App extends React.Component {
     }
     return this.setState({ viewSongs: false })
   }
-
-  // renderLogin =() => {
-  //   return (
-  //     <button onClick={() => this.displaySongs(false)} className={this.state.viewSongs ? "active" : ""}>
-  //       Log In 
-  //     </button> 
-  //   )
-  // }
 
   renderSongs = () => {
     const { viewSongs } = this.state;
@@ -81,7 +73,23 @@ class App extends React.Component {
       </li>
     ));
   };
+
+  toggle = () => {
+    this.setState({ modal: !this.state.modal });
+  };
   
+  handleSubmit = (item) => {
+    this.toggle();
+    if (item.song_name) {
+      axios
+        .put(`http://localhost:8000/api/songs/${item.song_name}`, item)
+        .then((res) => this.refreshList());
+      return;
+    }
+    axios
+      .post("http://localhost:8000/api/songs/", item)
+      .then((res) => this.refreshList());
+  };
 
   createSong = () => {
     const item = { Song: "" , artist: "", };
@@ -96,20 +104,6 @@ class App extends React.Component {
     axios
       .get(`http://localhost:8000/api/reviews/${song.Rating_id}`)
     this.setState({ activeItem: song, modal: !this.state.ratingModal})
-  }
-
-  handleSubmit = (item) => {
-    this.toggle();
-    if (item.song_name) {
-      axios
-        .put(`http://localhost:8000/api/songs/${item.song_name}`, item)
-        .then((res) => this.refreshList());
-      return;
-    }
-    axios
-      .post("http://localhost:8000/api/song/", item)
-      .then((res) => this.refreshList());
-    return;
   };
 
   handleDelete = (item) => {
